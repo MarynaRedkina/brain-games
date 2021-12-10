@@ -1,7 +1,7 @@
 name: Run linter
 on: push
 jobs:
-  my-job:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: my-step
