@@ -6,4 +6,3 @@ jobs:
     steps:
       - name: my-step
         run: make lint
-        
