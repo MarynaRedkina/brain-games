@@ -18,7 +18,7 @@ const getBrainProgression = () => {
 
     const getProgression = () => {
       for (let j = 0; j < progressionLength; j += 1) {
-        progression.push(progression[i] + increment);
+        progression.push(progression[j] + increment);
       }
       return 0;
     };
