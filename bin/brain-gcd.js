@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 import greeting from '../src/cli.js';
+import getRandomNumber from '../src/utils.js';
 
 console.log('Welcome to the Brain Games!');
 
@@ -7,34 +8,32 @@ const name = greeting();
 
 console.log('Find the greatest common divisor of given numbers.');
 
+const getGcd = (a, b) => {
+  const min = Math.min(a, b);
+  const max = Math.max(a, b);
+  let gcd;
+
+  if (max % min === 0) {
+    gcd = min;
+  }
+  for (let j = min; j > 0; j -= 1) {
+    if (max % j === 0 && min % j === 0) {
+      gcd = j;
+      break;
+    }
+  }
+  return gcd;
+};
+
 const brainGcd = () => {
   for (let i = 0; i < 3; i += 1) {
-    const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-
-    const firstNumber = getRandomNumber(0, 100);
-    const secondNumber = getRandomNumber(0, 100);
+    const firstNumber = getRandomNumber(1, 100);
+    const secondNumber = getRandomNumber(1, 100);
 
     const givenVariant = `${firstNumber}  ${secondNumber}`;
     console.log(givenVariant);
 
-    const getGcd = () => {
-      const min = Math.min(firstNumber, secondNumber);
-      const max = Math.max(firstNumber, secondNumber);
-      let gcd;
-
-      if (max % min === 0) {
-        gcd = min;
-      }
-      for (let j = min; j > 0; j -= 1) {
-        if (max % j === 0 && min % j === 0) {
-          gcd = j;
-          break;
-        }
-      }
-      return gcd;
-    };
-
-    const correctAnswer = getGcd();
+    const correctAnswer = getGcd(firstNumber, secondNumber);
 
     const guess = parseInt(readlineSync.question('Your answer: '), 10);
 
@@ -46,6 +45,7 @@ const brainGcd = () => {
       return 0;
     }
   }
+  console.log(`Congratulations, ${name}`);
   return 0;
 };
 brainGcd();
