@@ -8,12 +8,6 @@ const name = greeting();
 
 console.log('What is the result of the expression?');
 
-// const b = ['+', '-', '*'];
-// const operator = possibleOperators[getRandomNumber(0, possibleOperators.length-1)];
-
-// const firstNumber = getRandomNumber(0, 10);
-// const secondNumber = getRandomNumber(0, 10);
-
 const getCorrectAnswer = (a, b, c) => {
   switch (b) {
     case '+':
