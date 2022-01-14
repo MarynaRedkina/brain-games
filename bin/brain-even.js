@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 import greeting from '../src/cli.js';
+import getRandomNumber from '../src/utils.js';
 
 const isEven = (num) => {
   if (num % 2 === 0) {
@@ -16,7 +17,7 @@ const brainEven = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   for (let i = 0; i < 3; i += 1) {
-    const randomNumber = Math.floor(Math.random() * 100);
+    const randomNumber = getRandomNumber(0, 100);
     const correctAnswer = isEven(randomNumber) ? 'yes' : 'no';
 
     // const correctAnswer; (uses isEven with the random number, if it returns true,
