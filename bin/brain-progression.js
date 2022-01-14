@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 import greeting from '../src/cli.js';
+import getRandomNumber from '../src/utils.js';
 
 console.log('Welcome to the Brain Games!');
 
@@ -9,8 +10,6 @@ console.log('What number is missing in the progression?');
 
 const getBrainProgression = () => {
   for (let i = 0; i < 3; i += 1) {
-    const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-
     const number = getRandomNumber(0, 100);
     const increment = getRandomNumber(0, 5);
     const progressionLength = 10;
